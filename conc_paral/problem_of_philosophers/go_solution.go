@@ -18,18 +18,18 @@ SOLUCIÓN: Usando Canales
 
 // Estructura para representar un filósofo usando channels
 type PhilosopherChannels struct {
-	id        int
-	leftFork  chan bool
-	rightFork chan bool
-	done      chan bool
+	id        int				// Identificador del filósofo
+	leftFork  chan bool // Canal para el tenedor izquierdo
+	rightFork chan bool // Canal para el tenedor derecho
+	done      chan bool // Canal para indicar que el filósofo ha terminado de cenar
 }
 
 func (p *PhilosopherChannels) dine() {
-	eaten := 0
-	for eaten < 3 {
+	counter := 0
+	for counter < 3 {
 		p.think()
 		if p.eat() {
-			eaten++
+			counter++
 		}
 	}
 	p.done <- true
@@ -80,8 +80,8 @@ func solutionWithChannelsOnly(numPhilosophers int) {
 	// Crear channels para los tenedores  
 	forks := make([]chan bool, numPhilosophers)
 	for i := 0; i < numPhilosophers; i++ {
-		forks[i] = make(chan bool, 1)
-		forks[i] <- true // Inicializar cada tenedor como disponible
+		forks[i] = make(chan bool, 1) // Canal con buffer de 1 para cada tenedor
+		forks[i] <- true 							// Inicializar cada tenedor como disponible
 	}
 	
 	// Crear channels para señalar cuando cada filósofo termine
@@ -110,6 +110,10 @@ func solutionWithChannelsOnly(numPhilosophers int) {
 	fmt.Println("Todos los filósofos terminaron de cenar")
 	fmt.Println()
 }
+
+
+
+
 
 func main() {
 	solutionWithChannelsOnly(5)

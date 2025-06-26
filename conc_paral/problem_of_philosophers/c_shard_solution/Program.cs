@@ -2,6 +2,15 @@
 using System.Threading;
 using System.Threading.Tasks;
 
+/*
+La clase `DiningPhilosophers` simula N filósofos
+- Se usan los semáforos para los tenedores: cada tenedor se 
+  representa con un semáforo inicializado en 1, lo que 
+  significa que solo un filósofo puede usarlo a la vez. 
+- Para prevenir los deadlocks, el último filósofo toma los
+  tenedores en orden inverso.
+*/
+
 public class DiningPhilosophers
 {
     private readonly int numPhilosophers;
@@ -22,7 +31,8 @@ public class DiningPhilosophers
         // Inicializar semáforos para los tenedores, cada uno con un valor inicial de 1 (disponible)
         for (int i = 0; i < numPhilosophers; i++)
         {
-            forks[i] = new Semaphore(1, 1);
+            // Cada tenedor es un semáforo binario (1 disponible) 
+            forks[i] = new Semaphore(1, 1); 
             counter[i] = 0;
         }
     }
@@ -32,11 +42,11 @@ public class DiningPhilosophers
     /// Inicia la simulación de los filósofos comiendo.
     /// La simulación durará el tiempo especificado en segundos.
     /// </summary>
-    /// <param name="mealsTarget"></param>
+    /// <param name="target"></param>
     /// <returns></returns>
-    public async Task StartDining(int mealsTarget = 3)
+    public async Task StartDining(int target = 3)
     {
-        Console.WriteLine($"Iniciando simulación con {numPhilosophers} filósofos, cada uno debe comer {mealsTarget} veces");
+        Console.WriteLine($"Iniciando simulación con {numPhilosophers} filósofos, cada uno debe comer {target} veces");
         
         // Crear tareas para cada filósofo
         var tasks = new Task[numPhilosophers];
@@ -44,7 +54,7 @@ public class DiningPhilosophers
         {
             int philosopherId = i;
             // Cada filósofo corre en su propia tarea, ejecutando su ciclo de vida de manera concurrente 
-            tasks[i] = Task.Run(() => PhilosopherLifeCycle(philosopherId, mealsTarget));
+            tasks[i] = Task.Run(() => PhilosopherLifeCycle(philosopherId, target));
         }
 
         await Task.WhenAll(tasks);
@@ -68,10 +78,11 @@ public class DiningPhilosophers
 
     private void TryToEat(int id)
     {
+        // 1. Determinar qué tenedores necesita
         int leftFork = id;
         int rightFork = (id + 1) % numPhilosophers;
         
-        // Prevenir deadlock: el último filósofo toma los tenedores en orden inverso (rompe el ciclo)
+        // 2. Prevenir deadlock: el último filósofo toma los tenedores en orden inverso (rompe el ciclo)
         if (id == numPhilosophers - 1)
         {
             (leftFork, rightFork) = (rightFork, leftFork);
@@ -79,21 +90,21 @@ public class DiningPhilosophers
 
         Console.WriteLine($"Filósofo {id} quiere comer - buscando tenedores {leftFork} y {rightFork}");
 
-        // Intentar tomar el primer tenedor
+        // 3. Intentar tomar el primer tenedor
         forks[leftFork].WaitOne();
         Console.WriteLine($"Filósofo {id} tomó el tenedor {leftFork}");
 
-        // Intentar tomar el segundo tenedor
+        // 4. Intentar tomar el segundo tenedor
         forks[rightFork].WaitOne();
         Console.WriteLine($"Filósofo {id} tomó el tenedor {rightFork}");
 
-        // Comer
+        // 5. Comer
         Eat(id);
 
         counter[id]++;
         Console.WriteLine($"Filósofo {id} ha comido {counter[id]} veces");
 
-        // Liberar tenedores
+        // 6. Liberar tenedores
         forks[rightFork].Release();
         Console.WriteLine($"Filósofo {id} liberó el tenedor {rightFork}");
         
