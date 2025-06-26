@@ -65,7 +65,7 @@ func sumSquareUsingWG(n int) int {
 func squareUsingChannels(ch <-chan int, results chan<- int) {
 	for x := range ch {
 		square := squareSlow(x)
-		fmt.Printf("-> Goroutine (waitGroup): %d^2 = %d\n", x, square)
+		fmt.Printf("-> Goroutine: %d^2 = %d\n", x, square)
 		results <- square
 	}
 }

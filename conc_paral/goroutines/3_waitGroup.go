@@ -8,6 +8,7 @@ import (
 
 func process(id int, wg *sync.WaitGroup) {
 	defer wg.Done() // marca esta gorrutina como completada al terminar
+	
 	fmt.Printf("Procesando ID: %d\n", id)
 	time.Sleep(1 * time.Second) // simulación de algún trabajo
 	fmt.Printf("ID %d procesado\n", id)
