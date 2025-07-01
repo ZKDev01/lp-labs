@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conc_paral", "conc_paral", "{BC12D5E0-12B8-F95D-529A-4AAD528C2521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "barriers", "conc_paral\barriers\barriers.csproj", "{790E1040-761A-C3E4-00DE-C9F63F94692C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "countdowns", "conc_paral\countdowns\countdowns.csproj", "{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitors", "conc_paral\monitors\monitors.csproj", "{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "semaphore", "conc_paral\semaphore\semaphore.csproj", "{7FE9AD39-7866-B08F-B6C8-7514C405788D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "problem_of_philosophers", "problem_of_philosophers", "{A6A39675-4CDD-DB33-06BE-176B8065174C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solution_of_philosophers", "conc_paral\problem_of_philosophers\c_shard_solution\solution_of_philosophers.csproj", "{A95A6E28-331D-EB14-5613-C87C1239A57D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{790E1040-761A-C3E4-00DE-C9F63F94692C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790E1040-761A-C3E4-00DE-C9F63F94692C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790E1040-761A-C3E4-00DE-C9F63F94692C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790E1040-761A-C3E4-00DE-C9F63F94692C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE9AD39-7866-B08F-B6C8-7514C405788D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE9AD39-7866-B08F-B6C8-7514C405788D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE9AD39-7866-B08F-B6C8-7514C405788D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE9AD39-7866-B08F-B6C8-7514C405788D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A95A6E28-331D-EB14-5613-C87C1239A57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95A6E28-331D-EB14-5613-C87C1239A57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95A6E28-331D-EB14-5613-C87C1239A57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95A6E28-331D-EB14-5613-C87C1239A57D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{790E1040-761A-C3E4-00DE-C9F63F94692C} = {BC12D5E0-12B8-F95D-529A-4AAD528C2521}
+		{E3FBBB06-2C5E-ECB9-893F-991F1284BEBD} = {BC12D5E0-12B8-F95D-529A-4AAD528C2521}
+		{4BC79E55-6FF6-9DC0-74DF-38C2E1E90A85} = {BC12D5E0-12B8-F95D-529A-4AAD528C2521}
+		{7FE9AD39-7866-B08F-B6C8-7514C405788D} = {BC12D5E0-12B8-F95D-529A-4AAD528C2521}
+		{A6A39675-4CDD-DB33-06BE-176B8065174C} = {BC12D5E0-12B8-F95D-529A-4AAD528C2521}
+		{A95A6E28-331D-EB14-5613-C87C1239A57D} = {A6A39675-4CDD-DB33-06BE-176B8065174C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5685CA6-8D96-45E4-91B5-FE7BAAB6A06A}
+	EndGlobalSection
+EndGlobal
